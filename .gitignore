@@ -1,3 +1,4 @@
 main.c
+test_program.c
 *.o
 *.exe
