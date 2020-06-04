@@ -5,25 +5,10 @@ void child (const quadrant_t * q, quadrant_t * child_quadrant,
 {
     child_quadrant->level = q->level + 1;
 
-    child_quadrant->x = q->x + (child_id%2) * QUADRANT_LEN(child_quadrant->level);
+    child_quadrant->x = q->x + (child_id & 1 ? QUADRANT_LEN(child_quadrant->level) : 0);
 
-    if(child_id==2 || child_id==3 || child_id==6 || child_id==7 )
-    {
-        child_quadrant->y = q->y + QUADRANT_LEN(child_quadrant->level);
-    }
-    else
-    {
-        child_quadrant->y = q->y;
-    }
+    child_quadrant->y = q->y + (child_id & 2 ? QUADRANT_LEN(child_quadrant->level) : 0);
 
-    if(child_id>3)
-    {
-        child_quadrant->z = q->z + QUADRANT_LEN(child_quadrant->level);
-    }
-    else
-    {
-        child_quadrant->z = q->z;
-    }
+    child_quadrant->z = q->z + (child_id & 4 ? QUADRANT_LEN(child_quadrant->level) : 0);
 
 }
-
