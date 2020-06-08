@@ -33,6 +33,11 @@ int                 is_valid (const quadrant_t * q);
 
 int                 child_id (const quadrant_t * q);
 
+/** Compute the child of the given quadrant with the given id
+ * \param [in]  q               Input quadrant
+ * \param [out] child_quadrant  Child of \a q with Id \a child_id
+ * \param [in]  child_id        Id of the child (0<= id <= 7)
+ */
 void                child (const quadrant_t * q, quadrant_t * child_quadrant,
                            int child_id);
 
